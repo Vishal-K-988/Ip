@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         }
     }
 
-    mysqli_stmt_close($stmt);
+  mysqli_stmt_close($stmt);
 
 
 // Check for password
@@ -71,7 +71,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
         $param_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Try to execute the query
-        if (mysqli_stmt_execute($stmt))
+        if(mysqli_stmt_execute($stmt))
         {
             header("location: signin2.php");
         }
@@ -85,7 +85,6 @@ mysqli_close($conn);
 }
 
 ?>
-
 
 
 
@@ -108,8 +107,12 @@ mysqli_close($conn);
     <!-- <body background="background.jpg" class="background-image" > -->
 
 
+
     
     <h2>Sign in/up Form</h2>
+    <br>
+   
+    <h3> If already Created an Account: <a href="signin2.php" target="_parent" > Login</a>   </h3>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form  action="" method="post">
@@ -193,7 +196,7 @@ mysqli_close($conn);
 <!-- 
                     <input type="password" placeholder="Password" name="password" /> -->
                     <a href="forgot.php">Forgot your password?</a>
-                    <button id="login-form-submit" >Sign In</a></button>
+                    <!-- <button id="login-form-submit" >Sign In</a></button> -->
                     <input type="submit" value="Login" id="login-form-submit">
     
 
@@ -226,9 +229,7 @@ mysqli_close($conn);
     <footer>
         <div class="footer" >
              <p>
-             Created by: Vishal.K - - - - - - - - - - - - - - -   
-               Best experience in 419x459  
-             
+             Created by: Vishal.K   
         </div>
         
     

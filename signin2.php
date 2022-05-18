@@ -1,4 +1,3 @@
-
 <?php
 //This script will handle login
 session_start();
@@ -29,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 if(empty($err))
 {
     $sql = "SELECT id, username, password FROM users WHERE username = ?";
-    $stmt = mysqli_prepare($conn, $sql);
+    $stmt = mysqli_prepare($conn, $sql);  
     mysqli_stmt_bind_param($stmt, "s", $param_username);
     $param_username = $username;
     
@@ -51,7 +50,7 @@ if(empty($err))
                             $_SESSION["loggedin"] = true;
 
                             //Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: webpage.php");
                             
                         }
                     }
@@ -66,8 +65,6 @@ if(empty($err))
 
 
 ?>
-
-
 
 
 
